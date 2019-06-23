@@ -5,7 +5,7 @@ func Merge(args ... <-chan interface{}) <-chan interface{} {
 	for _, channel := range args {
 		go func(channel <-chan interface{}) {
 			for {
-				value, ok <- channel
+				value, ok := <- channel
 				if !ok {
 					return
 				}
